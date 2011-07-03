@@ -1,0 +1,11 @@
+task_create:
+  url: /task/create
+  param: { module: todo, action: create }
+
+task_delete:
+  url: /task/delete/:id
+  param: { module: todo, action: delete }
+
+task_change_status:
+  url: /task/changeStatus/:id
+  param: { module: todo, action: changeStatus }

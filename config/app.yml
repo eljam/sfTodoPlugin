@@ -1,0 +1,4 @@
+all:
+  sf_todo_plugin:
+    formated: true                       #if true, the component will load a css to pre-format the Todo-List
+    use_sf_doctrine_guard: false         #if true, each guard user will see one Todo-List, but the list will only work with authenticated user.

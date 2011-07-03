@@ -1,0 +1,10 @@
+Priority:
+  priority_1:
+    id: 1
+    name: "high"
+  priority_2:
+    id: 2
+    name: "medium"
+  priority_3:
+    id: 3
+    name: "low"

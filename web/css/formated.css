@@ -1,0 +1,101 @@
+#todo_task_content {
+  font-family: verdana, helvetica, sans-serif;
+  width: 200px;
+}
+
+#todo_task_content h1 {
+  font-size: 13px;
+  margin: 0px;
+  padding-left: 10px;
+}
+
+#todo_tasks {
+  margin: 0;
+  padding: 0;
+  max-height: 260px;
+  overflow-x: hidden;
+  list-style: none;
+}
+
+#todo_tasks li:hover {
+  background-color: #fffcd7;
+}
+
+#todo_tasks li {
+  overflow: hidden;
+  width: 100%;
+  border-bottom: 1px solid #ddd;
+  font-size: 11px;
+  line-height: 13px;
+}
+
+.todo_remove {
+  float: right;
+  padding-right: 10px;
+}
+
+.todo_priority {
+  border: 1px solid #ccc;
+  margin: 6px 4px;
+  float: left;
+  width: 10px;
+  height: 10px;
+}
+
+.todo_low {
+  background-color: #b6edb6;
+}
+
+.todo_medium {
+  background-color: #ffd760;
+}
+
+.todo_high {
+  background-color: #f55;
+}
+
+.todo_task_name {
+  width: 100%;
+  display: block;
+  padding: 7px 0;
+}
+
+#todo_loading {
+  color: #000;
+  float: right;
+}
+
+.todo_inactive {
+  text-decoration: line-through;
+  color: #999;
+}
+
+#todo_submit,
+#todo_show {
+  float: right;
+}
+
+#todo_submit {
+  display: none;
+}
+
+#todo_form {
+  display: none;
+}
+
+#todo_form label {
+  display: none
+}
+
+#todo_form input[type="text"] {
+  width: 100px;
+}
+
+#todo_form input[type="text"], #todo_form select {
+  margin: 2px;
+  padding: 2px;
+}
+
+#todo_close {
+  float: left;
+}

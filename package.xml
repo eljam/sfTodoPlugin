@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package packagerversion="1.4.6" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0 http://pear.php.net/dtd/tasks-1.0.xsd http://pear.php.net/dtd/package-2.0 http://pear.php.net/dtd/package-2.0.xsd">
+  <name>sfTodoPlugin</name>
+  <channel>plugins.symfony-project.org</channel>
+  <summary>Todo List Commponent</summary>
+  <description>Simple Todo List Commponent</description>
+  <lead>
+    <name>Marcio Toze</name>
+    <user>marcio.toze</user>
+    <email>marcio.toze@gmail.com</email>
+    <active>yes</active>
+  </lead>
+  <date>2011-07-03</date>
+  <time>00:41:00</time>
+  <version>
+    <release>0.2.2</release>
+    <api>0.2.2</api>
+  </version>
+  <stability>
+    <release>beta</release>
+    <api>beta</api>
+  </stability>
+  <license uri="http://www.symfony-project.org/license">MIT license</license>
+  <notes>-</notes>
+  <contents>
+    <dir name="/">
+      <file role="data" name="README" />
+      <file role="data" name="LICENSE" />
+      <dir name="config">
+        <dir name="doctrine">
+          <file role="data" name="schema.yml" />
+        </dir>
+        <file role="data" name="app.yml" />
+        <file role="data" name="routing.yml" />
+        <file role="data" name="sfToDoPluginConfiguration.class.php" />
+      </dir>
+      <dir name="data">
+        <dir name="fixtures">
+          <file role="data" name="tasks.yml" />
+          <file role="data" name="priority.yml" />
+        </dir>
+      </dir>
+      <dir name="i18n">
+        <file role="data" name="messages.pt_BR.xml" />
+      </dir>
+      <dir name="lib">
+        <dir name="form">
+          <dir name="doctrine">
+            <file role="data" name="PluginTasksForm.class.php" />
+            <file role="data" name="PluginPriorityForm.class.php" />
+          </dir>
+        </dir>
+        <dir name="model">
+          <dir name="doctrine">
+            <file role="data" name="PluginTasks.class.php" />
+            <file role="data" name="PluginTasksTable.class.php" />
+            <file role="data" name="PluginPriority.class.php" />
+            <file role="data" name="PluginPriorityTable.class.php" />
+          </dir>
+        </dir>
+      </dir>
+      <dir name="modules">
+        <dir name="todo">
+          <file role="data" name="actions/actions.class.php" />
+          <file role="data" name="actions/components.class.php" />
+          <file role="data" name="templates/_list.php" />
+          <file role="data" name="templates/_index.php" />
+        </dir>
+      </dir>
+      <dir name="web">
+        <dir name="css">
+          <file role="data" name="todo.css" />
+          <file role="data" name="formated.css" />
+        </dir>
+        <dir name="images">
+          <file role="data" name="close.png" />
+        </dir>
+        <dir name="js">
+          <file role="data" name="todo.js" />
+        </dir>
+      </dir>
+    </dir>
+  </contents>
+  <dependencies>
+    <required>
+      <php>
+        <min>5.2.4</min>
+      </php>
+      <pearinstaller>
+        <min>1.4.1</min>
+      </pearinstaller>
+      <package>
+        <name>symfony</name>
+        <channel>pear.symfony-project.com</channel>
+        <min>1.3.0</min>
+        <max>1.5.0</max>
+        <exclude>1.5.0</exclude>
+      </package>
+    </required>
+  </dependencies>
+  <phprelease />
+  <changelog />
+</package>

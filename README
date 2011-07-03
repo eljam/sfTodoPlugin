@@ -1,0 +1,95 @@
+# sfTodoPlugin #
+
+Add a simple list of tasks easily with this plugin.
+
+## Installation ##
+
+  * Install the plugin (via a package)
+
+        symfony plugin:install sfTodoPlugin
+
+  * Install the plugin (via a Subversion checkout)
+  
+  * Activate the plugin
+  
+        [php]
+        #config/ProjectConfiguration.class.php
+        class ProjectConfiguration extends sfProjectConfiguration
+        {
+          public function setup()
+          {
+            $this->enablePlugins(array(
+              'sfDoctrinePlugin', 
+              'sfTodoPlugin',
+              '...'
+            ));
+          }
+        }
+
+  * Rebuild your model
+
+        symfony doctrine:build-model
+        symfony doctrine:build-sql
+
+  * Update you database tables by starting from scratch (it will delete all
+    the existing tables, then re-create them):
+
+        symfony doctrine:insert-sql
+
+  * Load default fixture (Optional, but recommended)
+
+        symfony doctrine:data-load frontend # replace frontend with the name of one of your application
+
+    or do everything with one command
+
+        symfony doctrine-build-all-reload frontend # replace frontend with the name of one of your application
+
+  * Enable module in your `settings.yml`
+        all:
+          .settings:
+            enabled_modules:      [default, todo, ...]
+
+  * Clear you cache
+
+        symfony cc
+
+  * Finally add the component into `layout template` or `module template` you want
+
+        [php]
+        #app/frontend/templates/layout.php
+        <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+        <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+          <head>
+            <?php include_http_metas() ?>
+            <?php include_metas() ?>
+            <?php include_title() ?>
+            <link rel="shortcut icon" href="/favicon.ico" />
+            <?php include_stylesheets() ?>
+            <?php include_javascripts() ?>
+          </head>
+          <body>
+            <?php echo $sf_content ?>
+
+            <?php include_component('todo', 'index') ?> #
+
+          </body>
+        </html>
+
+## Configuration ##
+
+  * Pre-formated theme
+
+    You can remove a pre-formated layout of Todo-List just by setting the parameter formated to false in `plugins/sfTodoPlugin/config/app.yml`
+
+        all:
+          sf_todo_plugin:
+            formated: false                       #if true, the component will load a css to pre-format the Todo-List
+
+  * Integration with sfDoctrineGuardPlugin **(Not Implemented)**
+
+    You can integrate Todo-List with sfDoctrineGuardPlugin setting the parameter use_sf_doctrine_guard to true in `plugins/sfTodoPlugin/config/app.yml`
+
+        all:
+          sf_todo_plugin:
+            use_sf_doctrine_guard: true         #if true, each guard user will see one Todo-List, but the list will only work with authenticated user.
+

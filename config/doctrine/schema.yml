@@ -1,0 +1,19 @@
+Tasks:
+  actAs:
+    Timestampable: ~
+  columns:
+    name:                           { type: string(255) }
+    priority_id:                    { type: integer, notnull: true }
+    status:                         { type: boolean, default: true }
+  relations:
+    Priority:                       { local: priority_id, foreign: id, foreignAlias: Users, onDelete: CASCADE }
+  options:
+    symfony:
+      filter: false
+
+Priority:
+  columns:
+    name:                           { type: string(255), notnull: true }
+  options:
+    symfony:
+      filter: false
