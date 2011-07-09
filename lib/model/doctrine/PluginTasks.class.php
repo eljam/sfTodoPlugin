@@ -14,6 +14,9 @@ abstract class PluginTasks extends BaseTasks
 {
     public static function getTasks()
     {
+        if (sfConfig::get('app_sf_todo_plugin_use_sf_doctrine_guard') && !sfContext::getInstance()->getUser()->isAuthenticated())
+            return array();
+
         $nextDay = new DateTime();
         $nextDay->modify("-1 day");
 
@@ -21,6 +24,7 @@ abstract class PluginTasks extends BaseTasks
             ->createQuery('t')
             ->addWhere('status = ? or updated_at > ? ', array(true, $nextDay->format('Y-m-d H:i:s')))
             ->orderBy('priority_id, created_at DESC');
+
         if (sfConfig::get('app_sf_todo_plugin_use_sf_doctrine_guard'))
             $tasks->addWhere('sf_guard_user_id = ?', sfContext::getInstance()->getUser()->getGuardUser()->getId());
         
