@@ -10,15 +10,15 @@
     <email>marcio.toze@gmail.com</email>
     <active>yes</active>
   </lead>
-  <date>2011-07-03</date>
-  <time>00:41:00</time>
+  <date>2011-07-09</date>
+  <time>16:32:00</time>
   <version>
-    <release>0.2.2</release>
-    <api>0.2.2</api>
+    <release>1.1.0</release>
+    <api>1.1.0</api>
   </version>
   <stability>
-    <release>beta</release>
-    <api>beta</api>
+    <release>stable</release>
+    <api>stable</api>
   </stability>
   <license uri="http://www.symfony-project.org/license">MIT license</license>
   <notes>-</notes>

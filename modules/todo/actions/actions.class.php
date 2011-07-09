@@ -11,6 +11,10 @@ class todoActions extends sfActions
             $task = new Tasks();
             $task->setName($post['name']);
             $task->setPriority(Doctrine::getTable('Priority')->findOneById($post['priority_id']));
+
+            if (sfConfig::get('app_sf_todo_plugin_use_sf_doctrine_guard'))
+                $task->setSfGuardUserId(sfContext::getInstance()->getUser()->getGuardUser()->getId());
+
             $task->save();
         }
         $tasks = Tasks::getTasks();;

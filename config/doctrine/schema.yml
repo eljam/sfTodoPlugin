@@ -3,6 +3,7 @@ Tasks:
     Timestampable: ~
   columns:
     name:                           { type: string(255) }
+    sf_guard_user_id:               { type: integer }
     priority_id:                    { type: integer, notnull: true }
     status:                         { type: boolean, default: true }
   relations:
