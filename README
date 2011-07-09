@@ -88,11 +88,39 @@ Follow/Fork the project at github: https://github.com/marciotoze/sfTodoPlugin
           sf_todo_plugin:
             formated: false                       #if true, the component will load a css to pre-format the Todo-List
 
-  * Integration with sfDoctrineGuardPlugin **(Not Implemented)**
+  * Integration with sfDoctrineGuardPlugin
 
     You can integrate Todo-List with sfDoctrineGuardPlugin setting the parameter use_sf_doctrine_guard to true in `plugins/sfTodoPlugin/config/app.yml`
 
         all:
           sf_todo_plugin:
             use_sf_doctrine_guard: true         #if true, each guard user will see one Todo-List, but the list will only work with authenticated user.
+
+
+    * fixing the integration (Optional, but recommended)
+
+    if you are using the sfDoctrineGuardPlugin integration then you should fix a database relation by adding the following lines in `plugin/config/schema.yml`
+
+        Tasks:
+          options:
+            symfony:
+              filter: false
+          actAs:
+            Timestampable: ~
+          columns:
+            name:                           { type: string(255) }
+            sf_guard_user_id:               { type: integer }
+            priority_id:                    { type: integer, notnull: true }
+            status:                         { type: boolean, default: true }
+          relations:
+            Priority:                       { local: priority_id, foreign: id, foreignAlias: Users, onDelete: CASCADE }
+            sfGuardUser:                    #Fixing relationship
+
+        Priority:
+          columns:
+            name:                           { type: string(255), notnull: true }
+          options:
+            symfony:
+              filter: false
+      regenerate the database and you'll be ok. :)
 
